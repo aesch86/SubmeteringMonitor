@@ -1,6 +1,6 @@
 import os
 
-INSTANCE_FILE_PATH = os.getcwd()
+INSTANCE_FILE_PATH = "/usr/submetering-monitor/submetering-monitor-datas"
 INSTANCE_FILENAME =  "/Modbus Devices.pickles"
 INSTANCE_MODBUS_REGISTER =  "/Modbus Register.pickles"
 INSTANCE_VIRTUAL_REGISTER =  "/Virtual Register.pickles"
