@@ -63,6 +63,8 @@ class ModbusTask(Task):
     MODBUS_ADDR: List[ModbusAddr] = Field(default=[19000])
     type: str
     credentials: ModbusCredentials
+    send_via: str = ""  # means which protocol
+    send_interface: str = ""  # ethernet or 5G
 
     class Config:
         validate_assignment = True

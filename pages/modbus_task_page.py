@@ -113,11 +113,20 @@ if response:
                 func = st.selectbox("Funktion",options=parsed_list)
                 modbus_addr_list = st.multiselect("Modbus Addressen", modbus_register_list)
                 interval = st.number_input("Interval", 1)
+                send_via = st.selectbox("Mit welchen Protokoll soll versendet werden",options=["websocket", "rest","mqtt"])
+                send_interface = st.selectbox("Mit welchen interface",options=["5G","eth"])
 
                 click = st.button("Task zum Client hinzufügen")
 
                 if click and name and func and interval:
-                    modbus_task = ModbusTask(name=name, interval=interval, func=func, MODBUS_ADDR=modbus_addr_list ,credentials=device)
+                    modbus_task = ModbusTask(name=name,
+                                             interval=interval,
+                                             func=func,
+                                             MODBUS_ADDR=modbus_addr_list ,
+                                             credentials=device,
+                                             send_via= send_via,
+                                             send_interface=send_interface
+                                             )
                     print(modbus_task.dict())
                     try:
                         # post_response =  requests.post(f'http://{client.url}/modbus/addTask/', json=json.dumps(modbus_task))
