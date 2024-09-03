@@ -17,6 +17,7 @@ with st.expander("show devices"):
     st.dataframe(df)
 
 with st.expander("add new device"):
+    name = st.text_input("Name", "Ein ganzer toller Name")
     host = st.text_input("Host adresse", "192.168.200.100")
     unit_id = st.number_input("Unit ID", 1)
     timeout = st.number_input("Timeout", 2)
@@ -25,7 +26,8 @@ with st.expander("add new device"):
     click = st.button("Gerät hinzufügen")
 
     if click:
-        new_modbus_device = ModbusCredentials(HOST=host,
+        new_modbus_device = ModbusCredentials(NAME=name,
+            HOST=host,
                                               PORT=port,
                                               TIMEOUT=timeout,
                                               UNIT_ID=unit_id,

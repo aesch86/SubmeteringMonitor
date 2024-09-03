@@ -32,12 +32,20 @@ class VirtualRegister(BaseModel):
     noise_level: int
     duration: int
     offset: int
+    phase_shift: int
 
 
 class VirtualTask(Task):
     type:str = "Virtual"
     virtual_register: List[VirtualRegister] = Field(default=[0])
+    send_via: str = ""  # means which protocol
+    send_interface: str = ""  # ethernet or 5G
 
     def __init__(self, **data):
         # super().__init__(**data)
         self.__dict__.update(data)
+        # type: str = "Virtual"
+        # self.credentials: ModbusCredentials = data["credentials"]
+
+    class Config:
+        validate_assignment = True

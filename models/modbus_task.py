@@ -4,6 +4,7 @@ from typing import List, Callable
 
 
 class ModbusCredentials(BaseModel):
+    NAME: str = Field(default="NSHV")
     HOST: str = Field(default="192.168.200.100")
     PORT: int = Field(default= 502)
     UNIT_ID: int = Field(default= 1)
