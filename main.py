@@ -12,3 +12,5 @@ if "client_pcs" in st.session_state.keys():
     client_device_list = st.session_state["client_pcs"]
 
 st.write(client_device_list)
+for item in client_device_list:
+    st.markdown("[![Foo](http://www.google.com.au/images/nav_logo7.png)](http://localhost:8501/virtual_task_page)")

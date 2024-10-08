@@ -28,14 +28,15 @@ with st.expander("show ipc``"):
 #Create a new ClientPC and Save it
 with st.expander("add new ipc"):
     url: str = ""
-
+    #get data input
     name = st.text_input("name", )
     ip = st.text_input("Ip", )
     port = st.number_input("Port für RestInterface", step=1)
-
+    #ip is ok
     valid_Ip = is_valid_ipv4_address(ip)
     click = st.button("Gerät hinzufügen")
 
+    #save ipc
     if click:
         if valid_Ip and port != 0:
             device_already_saved = False
